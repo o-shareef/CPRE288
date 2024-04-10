@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Lab7/lab6-interrupt_template.c&apos; to &apos;lab7.c&apos;" description="Rename resource &apos;lab6-interrupt_template.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="lab6-interrupt_template.c" name="lab7.c" stamp="1709591554016" updateReferences="true"/>
-</session>
