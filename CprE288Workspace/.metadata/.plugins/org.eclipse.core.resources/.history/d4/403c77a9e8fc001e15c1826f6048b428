@@ -1,0 +1,35 @@
+
+
+
+// flag to tell the main program a special command was received, 0 means command not recieved, 1 means command recieved
+
+
+volatile int command_flag_w; //W key pressed flag ---- drive forward 15cm
+volatile int command_flag_a; //A key pressed flag ---- turn 30 degrees left
+volatile int command_flag_s; //S key pressed flag ---- TODO FIND SOMTETHING FOR THIS TO DO (dont wanna drive backwards cuz no info on what's behind us :( )
+volatile int command_flag_d; //D key pressed flag ---- turn 30 degrees right
+volatile int command_flag_l; //L key pressed flag ---- perform 180 degree scan
+
+
+
+
+
+/**
+ * main.c
+ */
+int main(void)
+{
+    timer_init(); // Must be called before lcd_init(), which uses timer functions
+    lcd_init();
+    uart_interrupt_init();
+
+
+    while(1){
+
+    }
+
+
+
+
+	return 0;
+}

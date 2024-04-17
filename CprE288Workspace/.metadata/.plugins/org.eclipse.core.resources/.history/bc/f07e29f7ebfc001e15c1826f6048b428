@@ -1,0 +1,53 @@
+
+
+
+#include "Timer.h"
+#include "uart-interrupt.h"
+#include "movement.h"
+#include "open_interface.h"
+
+
+
+// flag to tell the main program a special command was received, 0 means command not recieved, 1 means command recieved
+
+extern volatile int command_flag_w; //W key pressed flag ---- drive forward 15cm
+extern volatile int command_flag_a; //A key pressed flag ---- turn 30 degrees left
+extern volatile int command_flag_s; //S key pressed flag ---- TODO FIND SOMTETHING FOR THIS TO DO (dont wanna drive backwards cuz no info on what's behind us :( )
+extern volatile int command_flag_d; //D key pressed flag ---- turn 30 degrees right
+extern volatile int command_flag_l; //L key pressed flag ---- perform 180 degree scan
+
+
+
+
+
+/**
+ * main.c
+ */
+int main(void)
+{
+    timer_init(); // Must be called before lcd_init(), which uses timer functions
+    uart_interrupt_init();
+    oi_t *sensor_data = oi_alloc(); //do this only once at the start of main
+    oi_init(sensor_data); // do this only once at the start of main()
+
+
+
+    while(1){
+        //while
+
+
+
+        //if w is pressed, move forward 15cm
+        if(command_flag_w == 1){
+            move_forward(sensor_data, 150);
+            command_flag_w = 0;
+        }
+
+
+    }
+
+
+
+    oi_free(sensor_data);
+	return 0;
+}
